@@ -5,6 +5,7 @@ public class Spieler {
 	int nr = 0;
 	int start;
 	
+	
 	public Spieler(String name, int nr){
 		this.name=name;
 		this.nr=nr;
@@ -27,6 +28,20 @@ public class Spieler {
 		}
 	
 	}
+	
+public void spielerposition(feld.feldnr){
+
+for(int suche : new int[]((feld.feldnr));
+System.out.println(suche);
+	
+}
+	
+
+	
+}
+
+	
+
 	
 	
 }

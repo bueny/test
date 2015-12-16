@@ -34,12 +34,7 @@ public class Spielbrett {
 		// Spieler um die anzahlFelder bewegen
 		
 		System.out.println(spieler + "ist auf Feld" + anzahlFelder);
-		// Erst soll der Spieler der am Zug ist ausgewählt werden.
-		// Nachdem der Spieler ausgewählt wurde soll die Methode wuerfeln
-		// eine Zufallszahl würfeln und dem Spieler der am Zug ist zugewiesen werden.
-		// Hiernach soll die gewürfelte Zufallszahl auf die Feldnummer drauf addiert werden.
-		// Beim nächsten Zug soll der aber wissen auf welchem Feld der Spieler liegt und die
-		// Zufallszahl wieder drauf addieren.
+
 		
 		
 	}
