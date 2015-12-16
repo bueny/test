@@ -29,17 +29,6 @@ public class Spieler {
 	
 	}
 	
-public void spielerposition(feld.feldnr){
-
-for(int suche : new int[]((feld.feldnr));
-System.out.println(suche);
-	
-}
-	
-
-	
-}
-
 	
 
 	
