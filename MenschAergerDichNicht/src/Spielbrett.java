@@ -46,4 +46,14 @@ public class Spielbrett {
 		}
 	}
 	
+	public void spielerposition(){
+		for (Feld feld : felder){
+			if (feld.Spieler == Spieler)
+				
+				
+			
+			
+		}
+	}
+	
 }
