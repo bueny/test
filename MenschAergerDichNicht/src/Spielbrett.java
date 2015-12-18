@@ -4,7 +4,7 @@ public class Spielbrett {
 
 	int feldanzahl = 39;
 	Feld[] felder = new Feld[39];
-	Spieler[] Spieler = new Spieler[2];
+	Spieler[] Spieler = new Spieler[4];
 	ArrayList<Feld[]> ziele = new ArrayList<Feld[]>();
 	Feld[] zielFelder = new Feld[4];
 	
@@ -30,13 +30,20 @@ public class Spielbrett {
 		
 	}
 	
-	public void laufen(Spieler spieler, int anzahlFelder){
+	public int laufen(Spieler spieler, int anzahlFelder){
 		// Spieler um die anzahlFelder bewegen
 		
-		System.out.println(spieler + "ist auf Feld" + anzahlFelder);
-
+		Feld aktuellePosition = spielerposition(spieler);
 		
+		Feld neuePosition = felder[aktuellePosition.Feldnr + anzahlFelder];
 		
+		aktuellePosition.Spieler = null;
+		
+		felder[neuePosition.Feldnr].Spieler = spieler;
+		
+		System.out.println(neuePosition.Feldnr);
+		
+		return neuePosition.Feldnr;
 	}
 	
 	public void gebeSpielaus(){
@@ -46,14 +53,14 @@ public class Spielbrett {
 		}
 	}
 	
-	public void spielerposition(){
+	public Feld spielerposition(Spieler spieler){
 		for (Feld feld : felder){
-			if (feld.Spieler == Spieler)
-				
-				
-			
-			
+			if (feld.Spieler == spieler){
+				return feld;
+			}		
 		}
+		
+		return null;
 	}
 	
 }

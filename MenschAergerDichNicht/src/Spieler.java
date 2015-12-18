@@ -11,17 +11,17 @@ public class Spieler {
 		this.nr=nr;
 		
 		switch (nr){
+			case 0:
+				start = 0;
+				break;
 			case 1:
-				start = 1;
+				start = 10;
 				break;
 			case 2:
-				start = 11;
+				start = 20;
 				break;
 			case 3:
-				start = 21;
-				break;
-			case 4:
-				start = 31;
+				start = 30;
 				break;
 			default:
 				break;
