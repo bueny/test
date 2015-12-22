@@ -35,22 +35,33 @@ public class Spielbrett {
 		
 		Feld aktuellePosition = spielerposition(spieler);
 		
-		Feld neuePosition = felder[aktuellePosition.Feldnr + anzahlFelder];
+		int neueFeldnr = aktuellePosition.Feldnr + anzahlFelder;
+		
+		
+		
+		Feld neuePosition = felder[neueFeldnr];
 		
 		aktuellePosition.Spieler = null;
 		
 		felder[neuePosition.Feldnr].Spieler = spieler;
 		
-		System.out.println(neuePosition.Feldnr);
+		System.out.println(spieler.name + ':'+ neuePosition.Feldnr);
 		
 		return neuePosition.Feldnr;
 	}
 	
 	public void gebeSpielaus(){
 		for (Feld feld : felder){
-			System.out.println(feld.Feldnr);
+			//System.out.println(feld.Feldnr);
+			if (feld.Spieler != null) {
+				System.out.print("( " + feld.Spieler.name + " )");
+			}else{
+				System.out.print("()");
+			}
+			
 			
 		}
+		System.out.println("\n");
 	}
 	
 	public Feld spielerposition(Spieler spieler){

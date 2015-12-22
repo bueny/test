@@ -7,52 +7,42 @@ public class MenschAergerDichNichtTest {
 		// TODO Auto-generated method stub
 
 		InputStreamReader isr = new InputStreamReader(System.in);
-	    BufferedReader br = new BufferedReader(isr);
-	    System.out.print("Anzahl Spieler: ");
-	    String eingabe = br.readLine();
-	    
-	    int anzahlSpieler = Integer.parseInt(eingabe);
-	    
+		BufferedReader br = new BufferedReader(isr);
+		System.out.print("Anzahl Spieler: ");
+		String eingabe = br.readLine();
+
+		int anzahlSpieler = Integer.parseInt(eingabe);
+
 		Wuerfel wuerfel = new Wuerfel();
 		Spielbrett Spiel = new Spielbrett(anzahlSpieler);
-			
+
 		// Spieler 1 würfelt 3 mal
-		
+
 		for (int i = 0; i < anzahlSpieler; i++) {
-			
+
 			for (int j = 0; j < 3; j++) {
-				
-				wuerfel.wuerfeln();
-				if (wuerfel.wuerfeln() == 6) {
-					Spiel.felder[Spiel.Spieler[i].start].Spieler = Spiel.Spieler[i];
+
+				if (Spiel.spielerposition(Spiel.Spieler[i]) == null) {
+					int zahl = wuerfel.wuerfeln();
+					if (zahl == 6) {
+						Spiel.felder[Spiel.Spieler[i].start].Spieler = Spiel.Spieler[i];
+						int wuerfelzahl = wuerfel.wuerfeln();
+						Spiel.laufen(Spiel.Spieler[i], wuerfelzahl);
+						System.out.println(Spiel.Spieler[i].name + " Würfelt:" + wuerfelzahl);
+					} else
+
+					{
+						// System.out.println("Fehlversuch: " + zahl + " (" +
+						// Spiel.Spieler[i].name + ")");
+					}
+
 				}
-				
-				
-//				Spiel.Spieler[i]
+
+				// Spiel.Spieler[i]
 			}
-			
+			Spiel.gebeSpielaus();
 		}
-		
-		
-		
-/*		if (Spiel.spielerposition(Spiel.Spieler[0]) == null) {
-			Spiel.felder[0].Spieler = Spiel.Spieler[0];
-		}
-		
-		while (Spiel.laufen(Spiel.Spieler[0], wuerfel.wuerfeln()) < 30) {
 
-			
-			Spiel.laufen(Spiel.Spieler[0], wuerfel.wuerfeln());
-		}*/
-		
-		
-		
-		
-		//wuerfel.wuerfeln();
-
-		//Spiel.gebeSpielaus();
-		
-		
 	}
 
 }
