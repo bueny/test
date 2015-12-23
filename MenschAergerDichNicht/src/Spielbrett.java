@@ -7,71 +7,67 @@ public class Spielbrett {
 	Spieler[] Spieler = new Spieler[4];
 	ArrayList<Feld[]> ziele = new ArrayList<Feld[]>();
 	Feld[] zielFelder = new Feld[4];
-	
-	public Spielbrett(int anzahlSpieler){
-		
+
+	public Spielbrett(int anzahlSpieler) {
+
 		// Felder anlegen
-		for(int i=0;i<feldanzahl;i++){
+		for (int i = 0; i < feldanzahl; i++) {
 			felder[i] = new Feld(i);
 		}
-		
+
 		// Spieler anlegen
-		for(int i=0;i<anzahlSpieler;i++){
-			Spieler[i] = new Spieler("S"+i, i);
-			
+		for (int i = 0; i < anzahlSpieler; i++) {
+			Spieler[i] = new Spieler("S" + i, i);
+
 			// Zielfelder für Spieler anlegen
-			for(int j=0;j<4;j++){
+			for (int j = 0; j < 4; j++) {
 				zielFelder[j] = new Feld(j);
 			}
-			
 			// Zielfelder der ZielListe hinzufügen
 			ziele.add(zielFelder);
 		}
-		
+
 	}
-	
-	public int laufen(Spieler spieler, int anzahlFelder){
+
+	public int laufen(Spieler spieler, int anzahlFelder) {
 		// Spieler um die anzahlFelder bewegen
-		
+
 		Feld aktuellePosition = spielerposition(spieler);
-		
+
 		int neueFeldnr = aktuellePosition.Feldnr + anzahlFelder;
-		
-		
-		
+
 		Feld neuePosition = felder[neueFeldnr];
-		
+
 		aktuellePosition.Spieler = null;
-		
+
 		felder[neuePosition.Feldnr].Spieler = spieler;
-		
-		System.out.println(spieler.name + ':'+ neuePosition.Feldnr);
-		
+
+		System.out.println(spieler.name + " steht auf Feld " + neuePosition.Feldnr);
+
 		return neuePosition.Feldnr;
 	}
-	
-	public void gebeSpielaus(){
-		for (Feld feld : felder){
-			//System.out.println(feld.Feldnr);
+
+	public void gebeSpielaus() {
+		for (Feld feld : felder) {
+			// System.out.println(feld.Feldnr);
 			if (feld.Spieler != null) {
 				System.out.print("( " + feld.Spieler.name + " )");
-			}else{
+			} else {
 				System.out.print("()");
 			}
-			
-			
+
 		}
 		System.out.println("\n");
 	}
-	
-	public Feld spielerposition(Spieler spieler){
-		for (Feld feld : felder){
-			if (feld.Spieler == spieler){
+
+	public Feld spielerposition(Spieler spieler) {
+		for (Feld feld : felder) {
+			if (feld.Spieler == spieler) {
 				return feld;
-			}		
+			}
 		}
-		
+
 		return null;
 	}
-	
+
 }
