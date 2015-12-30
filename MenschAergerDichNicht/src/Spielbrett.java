@@ -1,12 +1,12 @@
-import java.util.ArrayList;
+
 
 public class Spielbrett {
 
 	int feldanzahl = 39;
 	Feld[] felder = new Feld[39];
-	Spieler[] Spieler = new Spieler[4];
-	ArrayList<Feld[]> ziele = new ArrayList<Feld[]>();
+	Spieler[] Spieler = new Spieler[4];	
 	Feld[] zielFelder = new Feld[4];
+	
 
 	public Spielbrett(int anzahlSpieler) {
 
@@ -17,14 +17,8 @@ public class Spielbrett {
 
 		// Spieler anlegen
 		for (int i = 0; i < anzahlSpieler; i++) {
-			Spieler[i] = new Spieler("S" + i, i);
+			Spieler[i] = new Spieler("Spieler " + (i+1) ,i);
 
-			// Zielfelder für Spieler anlegen
-			for (int j = 0; j < 4; j++) {
-				zielFelder[j] = new Feld(j);
-			}
-			// Zielfelder der ZielListe hinzufügen
-			ziele.add(zielFelder);
 		}
 
 	}
@@ -57,7 +51,7 @@ public class Spielbrett {
 			}
 
 		}
-		System.out.println("\n");
+
 	}
 
 	public Feld spielerposition(Spieler spieler) {

@@ -6,45 +6,70 @@ public class MenschAergerDichNichtTest {
 	public static void main(String[] args) throws IOException {
 
 		// Eingabe Anzahl der Spieler
-		
+
 		InputStreamReader isr = new InputStreamReader(System.in);
 		BufferedReader br = new BufferedReader(isr);
-		System.out.print("Anzahl Spieler: ");
-		String eingabe = br.readLine();
-	
+		int anzahlSpieler = 0;
+		do {
 
-		int anzahlSpieler = Integer.parseInt(eingabe);
+			System.out.print("Anzahl Spieler: ");
+			String eingabe = br.readLine();
+			try {
+				anzahlSpieler = Integer.parseInt(eingabe);
+			} catch (Exception e) {
+
+			}
+		} while ((anzahlSpieler > 4) || (anzahlSpieler <= 1));
 
 		Wuerfel wuerfel = new Wuerfel();
 		Spielbrett Spiel = new Spielbrett(anzahlSpieler);
 
+		switch (anzahlSpieler) {
+		case 2:
+			Spiel.zielFelder[2].Spieler = new Spieler("Spieler", 2);
+			Spiel.zielFelder[3].Spieler = new Spieler("Spieler", 3);
+
+			break;
+		case 3:
+			break;
+		default:
+			break;
+		}
+
 		// Spieler würfelt 3 mal
 
-		for (int i = 0; i < anzahlSpieler; i++) {
+		do {
 
-			for (int j = 0; j < 3; j++) {
+			for (int i = 0; i < anzahlSpieler; i++) {
 
-				if (Spiel.spielerposition(Spiel.Spieler[i]) == null) {
-					int zahl = wuerfel.wuerfeln();
-					if (zahl == 6) {
-						System.out.println("Super du hast eine " + zahl + " gewürfelt jetzt darfst du nochmal würfeln");
-						Spiel.felder[Spiel.Spieler[i].start].Spieler = Spiel.Spieler[i];
-						int wuerfelzahl = wuerfel.wuerfeln();
-						System.out.println(Spiel.Spieler[i].name + " würfelt eine " + wuerfelzahl);
-						Spiel.laufen(Spiel.Spieler[i], wuerfelzahl);
+				for (int j = 0; j < 3; j++) {
 
-					} else
+					if (Spiel.spielerposition(Spiel.Spieler[i]) == null) {
+						int zahl = wuerfel.wuerfeln();
+						if (zahl == 6) {
+							System.out.println(Spiel.Spieler[i].name + " super du hast eine " + zahl
+									+ " gewürfelt jetzt darfst du nochmal würfeln");
+							Spiel.felder[Spiel.Spieler[i].start].Spieler = Spiel.Spieler[i];
+							int wuerfelzahl = wuerfel.wuerfeln();
+							System.out.println(Spiel.Spieler[i].name + " würfelt eine " + wuerfelzahl);
+							Spiel.laufen(Spiel.Spieler[i], wuerfelzahl);
+							Spiel.gebeSpielaus();
+						} else
 
-					{
-						System.out.println(Spiel.Spieler[i].name + " leider keine 6 gewürfelt");
+						{
+							System.out.print(Spiel.Spieler[i].name + " leider keine 6 gewürfelt");
+						}
+
+						br.readLine();
+
 					}
 
 				}
-
-				// Spiel.Spieler[i]
 			}
-			Spiel.gebeSpielaus();
-		}
+
+			// Spiel.gebeSpielaus();
+		} while ((Spiel.zielFelder[0].Spieler != null) && (Spiel.zielFelder[1].Spieler != null)
+				&& (Spiel.zielFelder[2].Spieler != null) && (Spiel.zielFelder[3].Spieler != null));
 
 	}
 
