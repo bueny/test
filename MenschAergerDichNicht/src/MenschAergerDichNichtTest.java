@@ -14,7 +14,7 @@ public class MenschAergerDichNichtTest {
 		do {
 
 			System.out.print("Anzahl Spieler: ");
-			String eingabe = br.readLine();
+			String eingabe = br.readLine();								// Eingabe der richtigen Spieleranzahl
 			try {
 				anzahlSpieler = Integer.parseInt(eingabe);
 			} catch (Exception e) { 									// fängt Fehler ab
@@ -73,9 +73,8 @@ public class MenschAergerDichNichtTest {
 			}
 
 			// Spiel.gebeSpielaus();
-		} while ((Spiel.zielFelder[0].Spieler != null) && (Spiel.zielFelder[1].Spieler != null)
-				&& (Spiel.zielFelder[2].Spieler != null) && (Spiel.zielFelder[3].Spieler != null));
-
+		} while ((Spiel.zielFelder[0].Spieler == null) || (Spiel.zielFelder[1].Spieler == null)
+				|| (Spiel.zielFelder[2].Spieler == null) || (Spiel.zielFelder[3].Spieler == null));
 	}
 
 }
