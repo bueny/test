@@ -19,7 +19,15 @@ public class Spielbrett {
 		for (int i = 0; i < anzahlSpieler; i++) {
 			Spieler[i] = new Spieler("Spieler " + (i+1) ,i);
 
+
+			for (int j = 0; j < 4; j++) {
+				 				zielFelder[j] = new Feld(j);
+				 			}
+			
+			
 		}
+		
+		
 
 	}
 
