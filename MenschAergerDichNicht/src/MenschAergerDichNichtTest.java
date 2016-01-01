@@ -42,13 +42,18 @@ public class MenschAergerDichNichtTest {
 																		// Spieler würfelt 3 mal
 
 		do {
-
+			
 			for (int i = 0; i < anzahlSpieler; i++) {
 
-				for (int j = 0; j < 3; j++) {
-
-					if (Spiel.spielerposition(Spiel.Spieler[i]) == null) {				 
+				
+				
+				for (int j = 0; j < 3 ; j++) {
+					if (Spiel.spielerposition(Spiel.Spieler[i]) == Spiel.spielerposition(Spiel.Spieler[i])) {	
+						
+					 
 						int zahl = wuerfel.wuerfeln();
+				
+									
 						if (zahl == 6) {
 							System.out.print(Spiel.Spieler[i].name + " SUPER du hast jetzt eine " + zahl		 // Überprüfung
 									+ " gewürfelt du darfst nochmal würfeln");
@@ -59,12 +64,15 @@ public class MenschAergerDichNichtTest {
 							br.readLine();
 							Spiel.laufen(Spiel.Spieler[i], wuerfelzahl);
 							Spiel.gebeSpielaus();
+							
 						} else
+							
 
 						{
-							System.out.print(Spiel.Spieler[i].name + " du hast leider keine 6 gewürfelt");
-						}
 
+							System.out.print(Spiel.Spieler[i].name + " du hast leider keine 6 gewürfelt");
+
+						}
 						br.readLine();
 
 					}
