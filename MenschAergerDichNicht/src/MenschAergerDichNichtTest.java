@@ -5,28 +5,29 @@ public class MenschAergerDichNichtTest {
 
 	public static void main(String[] args) throws IOException {
 
-																		// Eingabe Anzahl der Spieler
+		// Eingabe Anzahl der Spieler
 
-		InputStreamReader isr = new InputStreamReader(System.in);		
+		InputStreamReader isr = new InputStreamReader(System.in);
 		BufferedReader br = new BufferedReader(isr);
 		int anzahlSpieler = 0;
 
 		do {
 
 			System.out.print("Anzahl Spieler: ");
-			String eingabe = br.readLine();								// Eingabe der richtigen Spieleranzahl
+			String eingabe = br.readLine(); // Eingabe der richtigen
+											// Spieleranzahl
 			try {
 				anzahlSpieler = Integer.parseInt(eingabe);
-			} catch (Exception e) { 									// fängt Fehler ab
+			} catch (Exception e) { // fängt Fehler ab
 
 			}
-		} while ((anzahlSpieler > 4) || (anzahlSpieler <= 1)); 			// min. max. Spieleranzahl
-																
+		} while ((anzahlSpieler > 4) || (anzahlSpieler <= 1)); // min. max.
+																// Spieleranzahl
 
 		Wuerfel wuerfel = new Wuerfel();
 		Spielbrett Spiel = new Spielbrett(anzahlSpieler);
 
-		switch (anzahlSpieler) { 										// belegung der Zielfelder
+		switch (anzahlSpieler) { // belegung der Zielfelder
 		case 2:
 			Spiel.zielFelder[2].Spieler = new Spieler("Spieler", 2);
 
@@ -39,23 +40,28 @@ public class MenschAergerDichNichtTest {
 			break;
 		}
 
-																		// Spieler würfelt 3 mal
+		// Spieler würfelt 3 mal
 
 		do {
-			
+
 			for (int i = 0; i < anzahlSpieler; i++) {
 
-				
-				
-				for (int j = 0; j < 3 ; j++) {
-					if (Spiel.spielerposition(Spiel.Spieler[i]) == Spiel.spielerposition(Spiel.Spieler[i])) {	
-						
-					 
+				if (Spiel.spielerposition(Spiel.Spieler[i]) == null) {
+
+				} else
+
+					Spiel.spielerposition(Spiel.Spieler[i]);
+				int wurf = wuerfel.wuerfeln();
+
+				Spiel.laufen(Spiel.Spieler[i], wurf);
+
+				for (int j = 0; j < 3; j++) {
+
+					{
 						int zahl = wuerfel.wuerfeln();
-				
-									
+
 						if (zahl == 6) {
-							System.out.print(Spiel.Spieler[i].name + " SUPER du hast jetzt eine " + zahl		 // Überprüfung
+							System.out.print(Spiel.Spieler[i].name + " SUPER du hast jetzt eine " + zahl // Überprüfung
 									+ " gewürfelt du darfst nochmal würfeln");
 							br.readLine();
 							Spiel.felder[Spiel.Spieler[i].start].Spieler = Spiel.Spieler[i];
@@ -64,9 +70,8 @@ public class MenschAergerDichNichtTest {
 							br.readLine();
 							Spiel.laufen(Spiel.Spieler[i], wuerfelzahl);
 							Spiel.gebeSpielaus();
-							
+
 						} else
-							
 
 						{
 
