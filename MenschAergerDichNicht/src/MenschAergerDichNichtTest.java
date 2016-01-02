@@ -46,16 +46,9 @@ public class MenschAergerDichNichtTest {
 
 			for (int i = 0; i < anzahlSpieler; i++) {
 
-				if (Spiel.spielerposition(Spiel.Spieler[i]) == null) {
-
-				} else
-
-					Spiel.spielerposition(Spiel.Spieler[i]);
-				int wurf = wuerfel.wuerfeln();
-
-				Spiel.laufen(Spiel.Spieler[i], wurf);
-
 				for (int j = 0; j < 3; j++) {
+
+					if (Spiel.spielerposition(Spiel.Spieler[i]) == null)
 
 					{
 						int zahl = wuerfel.wuerfeln();
