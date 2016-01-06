@@ -1,12 +1,12 @@
 
-
 public class Spielbrett {
+
+	// Eigenschaften
 
 	int feldanzahl = 39;
 	Feld[] felder = new Feld[39];
-	Spieler[] Spieler = new Spieler[4];	
+	Spieler[] Spieler = new Spieler[4];
 	Feld[] zielFelder = new Feld[4];
-	
 
 	public Spielbrett(int anzahlSpieler) {
 
@@ -17,26 +17,26 @@ public class Spielbrett {
 
 		// Spieler anlegen
 		for (int i = 0; i < anzahlSpieler; i++) {
-			Spieler[i] = new Spieler("Spieler " + (i+1) ,i);
-
+			Spieler[i] = new Spieler("Spieler " + (i + 1), i);
 
 			for (int j = 0; j < 4; j++) {
-				 				zielFelder[j] = new Feld(j);
-				 			}
-			
-			
+				zielFelder[j] = new Feld(j);
+			}
+
 		}
-		
-		
 
 	}
 
 	public int laufen(Spieler spieler, int anzahlFelder) {
+
 		// Spieler um die anzahlFelder bewegen
 
-		Feld aktuellePosition = spielerposition(spieler);
+		Feld aktuellePosition = spielerposition(spieler); // Spieler
+															// überschreiben
 
-		int neueFeldnr = aktuellePosition.Feldnr + anzahlFelder;
+		int neueFeldnr = aktuellePosition.Feldnr + anzahlFelder; // anzahlFelder
+																	// gewürfelte
+																	// anzahl
 
 		Feld neuePosition = felder[neueFeldnr];
 
@@ -45,6 +45,12 @@ public class Spielbrett {
 		felder[neuePosition.Feldnr].Spieler = spieler;
 
 		System.out.println(spieler.name + " steht auf Feld " + neuePosition.Feldnr);
+		
+		if (neueFeldnr > feldanzahl){
+			
+			
+			
+		}
 
 		return neuePosition.Feldnr;
 	}
@@ -56,6 +62,7 @@ public class Spielbrett {
 				System.out.print("( " + feld.Spieler.name + " )");
 			} else {
 				System.out.print("()");
+
 			}
 
 		}
