@@ -47,7 +47,9 @@ public class Spielbrett {
 		System.out.println(spieler.name + " steht auf Feld " + neuePosition.Feldnr);
 		
 		if (neueFeldnr > feldanzahl){
-			
+		
+			neueFeldnr = neueFeldnr-39;
+			spieler =  ;
 			
 			
 		}
