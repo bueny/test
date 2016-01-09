@@ -14,13 +14,13 @@ public class Spieler {
 			start = 0;
 			break;
 		case 1:
-			start = 0;
+			start = 11;
 			break;
 		case 2:
-			start = 0;
+			start = 21;
 			break;
 		case 3:
-			start = 0;
+			start = 31;
 			break;
 		default:
 			break;

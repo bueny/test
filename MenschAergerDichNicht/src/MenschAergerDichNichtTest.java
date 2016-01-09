@@ -45,6 +45,8 @@ public class MenschAergerDichNichtTest {
 		do {
 
 			for (int i = 0; i < anzahlSpieler; i++) {
+				
+				if (Spiel.spielerposition(Spiel.Spieler[i]) == null)
 
 				for (int j = 0; j < 3; j++) {
 
@@ -73,9 +75,23 @@ public class MenschAergerDichNichtTest {
 						}
 						br.readLine();
 
-					}
+					} 
 
+					
+					
 				}
+				else 
+					
+				{
+					int wurf = wuerfel.wuerfeln();
+					System.out.print(Spiel.Spieler[i].name + " würfelt eine " + wurf);
+					br.readLine();
+					Spiel.laufen(Spiel.Spieler[i], wurf);
+					Spiel.gebeSpielaus();
+					
+			
+				}
+				br.readLine();
 			}
 
 			// Spiel.gebeSpielaus();
