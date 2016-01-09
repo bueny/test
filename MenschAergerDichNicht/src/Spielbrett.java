@@ -36,8 +36,18 @@ public class Spielbrett {
 
 		int neueFeldnr = aktuellePosition.Feldnr + anzahlFelder; // anzahlFelder
 																	// gewürfelte
-																	// anzahl
+		if (neueFeldnr > feldanzahl){
+			
+			neueFeldnr = neueFeldnr-39;			
+		}														// anzahl
 
+		if (neueFeldnr > spieler.start-1 ){
+			
+			zielFelder[spieler.nr].Spieler = spieler ;
+			
+		}
+		
+		
 		Feld neuePosition = felder[neueFeldnr];
 
 		aktuellePosition.Spieler = null;
@@ -46,13 +56,7 @@ public class Spielbrett {
 
 		System.out.println(spieler.name + " steht auf Feld " + neuePosition.Feldnr);
 		
-		if (neueFeldnr > feldanzahl){
 		
-			neueFeldnr = neueFeldnr-39;
-			spieler =  ;
-			
-			
-		}
 
 		return neuePosition.Feldnr;
 	}
