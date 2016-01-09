@@ -57,7 +57,7 @@ public class Spielbrett {
 		aktuellePosition.Spieler = null;
 
 		
-		felder[neueFeldnr].Spieler = spieler;
+	
 
 		System.out.println(spieler.name + " steht auf Feld " + neueFeldnr);
 		
