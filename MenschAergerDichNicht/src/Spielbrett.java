@@ -36,26 +36,34 @@ public class Spielbrett {
 
 		int neueFeldnr = aktuellePosition.Feldnr + anzahlFelder; // anzahlFelder
 																	// gewürfelte
-		if (neueFeldnr > feldanzahl) {
+		if (neueFeldnr > feldanzahl){
+			
+			neueFeldnr = neueFeldnr-38;			
+		}														// anzahl
 
-			neueFeldnr = neueFeldnr - 38;
-		} 														// anzahl
-
-		if (neueFeldnr > spieler.start - 1) {
-
-			zielFelder[spieler.nr].Spieler = spieler;
-
+		if (neueFeldnr > spieler.start-1 ){
+			
+			zielFelder[spieler.nr].Spieler = spieler ;
+			
 		}
-
-		Feld neuePosition = felder[neueFeldnr];
+		
+		else{
+			felder[neueFeldnr].Spieler = spieler;
+		}
+		
+		
+		
 
 		aktuellePosition.Spieler = null;
 
-		felder[neuePosition.Feldnr].Spieler = spieler;
+		
+		felder[neueFeldnr].Spieler = spieler;
 
-		System.out.println(spieler.name + " steht auf Feld " + neuePosition.Feldnr);
+		System.out.println(spieler.name + " steht auf Feld " + neueFeldnr);
+		
+		
 
-		return neuePosition.Feldnr;
+		return neueFeldnr;
 	}
 
 	public void gebeSpielaus() {
