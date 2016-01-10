@@ -65,7 +65,7 @@ public class Spielbrett {
 	public void gebeSpielaus() {
 		for (Feld feld : felder) {
 
-			for (Feld zielfeld : zielFelder) {
+//			for (Feld zielfeld : zielFelder) {
 
 				if (feld.Spieler != null) {
 					System.out.print("( " + feld.Spieler.name + " )");
@@ -76,19 +76,34 @@ public class Spielbrett {
 
 				}
 
-				if (zielfeld.Spieler != null) {
-					System.out.print("( " + zielfeld.Spieler.name + " )");
+//				if (zielfeld.Spieler != null) {
+//					System.out.print("( " + zielfeld.Spieler.name + " )");
 				}
 
-				else {
+//				else {
 					System.out.println("()");
 
 				}
 
+//			}
+//		}
+
+//	}
+	
+	
+	public void gebeZielfeldaus(){
+		for (Feld zielfeld : zielFelder) {
+			if (zielfeld.Spieler != null) {
+				System.out.print("( " + zielfeld.Spieler.name + " )");
+			}
+
+			else {
+				System.out.print("()");
+
 			}
 		}
-
 	}
+	
 
 	public Feld spielerposition(Spieler spieler) {
 		for (Feld feld : felder) {
