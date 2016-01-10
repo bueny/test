@@ -1,7 +1,7 @@
 
 public class Spielbrett {
 
-		// Eigenschaften des Spiels
+	// Eigenschaften des Spiels
 
 	int feldanzahl = 39;
 	Feld[] felder = new Feld[39];
@@ -34,16 +34,16 @@ public class Spielbrett {
 		Feld aktuellePosition = spielerposition(spieler);
 
 		int neueFeldnr = aktuellePosition.Feldnr + anzahlFelder;
-		
+
 		// Spieler beginnt vom Startpunkt
-		
+
 		if (neueFeldnr >= feldanzahl) {
 
 			neueFeldnr = neueFeldnr - 38;
 		}
 
 		// laufen bis start-1
-		
+
 		if (neueFeldnr > spieler.start - 1 && aktuellePosition.Feldnr < spieler.start) {
 
 			zielFelder[spieler.nr].Spieler = spieler;
@@ -66,15 +66,28 @@ public class Spielbrett {
 		for (Feld feld : felder) {
 			if (feld.Spieler != null) {
 				System.out.print("( " + feld.Spieler.name + " )");
-			} else {
+			}
+
+			else {
 				System.out.print("()");
 
 			}
+			
+			for (Feld zielfeld : zielFelder) {
+				if (zielfeld.Spieler != null) {
+					System.out.print(zielfeld.Spieler.name );
+				} 
+				
+				else {
+					System.out.println("()");
 
+				}	
+
+			}
 		}
 
 	}
-	
+
 	public Feld spielerposition(Spieler spieler) {
 		for (Feld feld : felder) {
 			if (feld.Spieler == spieler) {

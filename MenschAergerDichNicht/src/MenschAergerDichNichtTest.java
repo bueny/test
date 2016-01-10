@@ -17,16 +17,16 @@ public class MenschAergerDichNichtTest {
 			String eingabe = br.readLine();
 			try {
 				anzahlSpieler = Integer.parseInt(eingabe);
-			// Abfangen von Fehlern bei der Eingabe
+				// Abfangen von Fehlern bei der Eingabe
 			} catch (Exception e) {
 
 			}
 			// Eingabe der Spieleranzahl
-		} while ((anzahlSpieler > 4) || (anzahlSpieler <= 1)); 
+		} while ((anzahlSpieler > 4) || (anzahlSpieler <= 1));
 		Wuerfel wuerfel = new Wuerfel();
 		Spielbrett Spiel = new Spielbrett(anzahlSpieler);
-			// Belegung der Zielfelder durch die nicht spielenden Spieler
-		switch (anzahlSpieler) { 
+		// Belegung der Zielfelder durch die nicht spielenden Spieler
+		switch (anzahlSpieler) {
 		case 2:
 			Spiel.zielFelder[2].Spieler = new Spieler("Spieler", 2);
 
@@ -39,7 +39,7 @@ public class MenschAergerDichNichtTest {
 			break;
 		}
 
-			// Spieler würfelt 3 mal
+		// Spieler würfelt 3 mal
 		do {
 
 			for (int i = 0; i < anzahlSpieler; i++) {
@@ -52,7 +52,7 @@ public class MenschAergerDichNichtTest {
 
 						{
 							int zahl = wuerfel.wuerfeln();
-			// Ablauf wenn Spieler eine 6 würfelt
+							// Ablauf wenn Spieler eine 6 würfelt
 							if (zahl == 6) {
 								System.out.print(Spiel.Spieler[i].name + " SUPER du hast jetzt eine " + zahl // Überprüfung
 										+ " gewürfelt du darfst nochmal würfeln");
@@ -65,7 +65,7 @@ public class MenschAergerDichNichtTest {
 								Spiel.gebeSpielaus();
 
 							} else
-			// Ablauf wenn Spieler keine 6 würfelt
+							// Ablauf wenn Spieler keine 6 würfelt
 							{
 
 								System.out.print(Spiel.Spieler[i].name + " du hast leider keine 6 gewürfelt");
@@ -77,7 +77,7 @@ public class MenschAergerDichNichtTest {
 
 					}
 				else
-			// Ablauf nachdem 39 Feld
+				// Ablauf nachdem 39 Feld
 				{
 
 					int wurf = wuerfel.wuerfeln();
