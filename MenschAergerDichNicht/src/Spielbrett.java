@@ -1,7 +1,7 @@
 
 public class Spielbrett {
 
-	// Eigenschaften
+		// Eigenschaften des Spiels
 
 	int feldanzahl = 39;
 	Feld[] felder = new Feld[39];
@@ -31,44 +31,39 @@ public class Spielbrett {
 
 		// Spieler um die anzahlFelder bewegen
 
-		Feld aktuellePosition = spielerposition(spieler); // Spieler
-															// überschreiben
+		Feld aktuellePosition = spielerposition(spieler);
 
-		int neueFeldnr = aktuellePosition.Feldnr + anzahlFelder; // anzahlFelder
-																	// gewürfelte
-		if (neueFeldnr > feldanzahl){
-			
-			neueFeldnr = neueFeldnr-38;			
-		}														// anzahl
-
-		if (neueFeldnr > spieler.start-1 ){
-			
-			zielFelder[spieler.nr].Spieler = spieler ;
-			
-		}
+		int neueFeldnr = aktuellePosition.Feldnr + anzahlFelder;
 		
-		else{
+		// Spieler beginnt vom Startpunkt
+		
+		if (neueFeldnr >= feldanzahl) {
+
+			neueFeldnr = neueFeldnr - 38;
+		}
+
+		// laufen bis start-1
+		
+		if (neueFeldnr > spieler.start - 1 && aktuellePosition.Feldnr < spieler.start) {
+
+			zielFelder[spieler.nr].Spieler = spieler;
+
+		}
+
+		else {
 			felder[neueFeldnr].Spieler = spieler;
+
 		}
-		
-		
-		
 
 		aktuellePosition.Spieler = null;
 
-		
-	
-
 		System.out.println(spieler.name + " steht auf Feld " + neueFeldnr);
-		
-		
 
 		return neueFeldnr;
 	}
 
 	public void gebeSpielaus() {
 		for (Feld feld : felder) {
-			// System.out.println(feld.Feldnr);
 			if (feld.Spieler != null) {
 				System.out.print("( " + feld.Spieler.name + " )");
 			} else {
@@ -79,7 +74,7 @@ public class Spielbrett {
 		}
 
 	}
-
+	
 	public Feld spielerposition(Spieler spieler) {
 		for (Feld feld : felder) {
 			if (feld.Spieler == spieler) {
