@@ -65,6 +65,8 @@ public class Spielbrett {
 	public void gebeSpielaus() {
 		for (Feld feld : felder) {
 
+			// for (Feld zielfeld : zielFelder) {
+
 			if (feld.Spieler != null) {
 				System.out.print("( " + feld.Spieler.name + " )");
 			}
@@ -73,7 +75,11 @@ public class Spielbrett {
 				System.out.print("()");
 
 			}
+
 		}
+
+		System.out.println("()");
+
 	}
 
 	public void gebeZielfeldaus() {
